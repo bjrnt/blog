@@ -5,22 +5,23 @@
   "main": "index.js",
   "scripts": {
     "dev": "next",
-    "build": "next build && next export",
-    "deploy": "git subtree push --prefix out origin gh-pages"
+    "build:bulma": "node-sass --omit-source-map-url bulma/bulma.sass styles/bulma.css",
+    "build": "npm run build:bulma && next build && next export"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@mdx-js/mdx": "^0.15.4",
+    "@zeit/next-css": "^1.0.1",
     "@zeit/next-mdx": "^1.2.0",
-    "@zeit/next-typescript": "^1.1.1",
+    "babel-plugin-macros": "^2.4.2",
+    "bulma": "^0.7.1",
+    "glob": "^7.1.3",
+    "node-sass": "^4.9.3",
     "next": "^7.0.0",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
-  },
-  "devDependencies": {
-    "@types/next": "^6.1.8",
-    "@types/react": "^16.4.14"
+    "react-dom": "^16.5.2",
+    "preval.macro": "^3.0.0"
   }
 }

@@ -1,7 +1,7 @@
-const withTypescript = require('@zeit/next-typescript')
+const withCss = require("@zeit/next-css");
 
-const withMdx = require('@zeit/next-mdx')({
-    options: {}
-})
+const withMdx = require("@zeit/next-mdx")({
+  options: {}
+});
 
-module.exports = withMdx(withTypescript({ pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx']}))
+module.exports = withCss(withMdx({ pageExtensions: ["jsx", "mdx"] }));

@@ -63,7 +63,11 @@ jspm_packages/
 
 # next.js build output
 .next
+out
 dist
+
+# Built Bulma styles
+styles/bulma.css
 
 # nuxt.js build output
 .nuxt
@@ -74,5 +78,6 @@ dist
 # Serverless directories
 .serverless
 
+.DS_Store
 
 # End of https://www.gitignore.io/api/node
