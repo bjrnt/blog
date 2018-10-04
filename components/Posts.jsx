@@ -1,37 +1,22 @@
 import preval from 'preval.macro'
 import Link from 'next/link'
+import FormattedDate from './FormattedDate'
 
-const EXTERNAL_BLOG_POSTS = [
-  {
-    external: true,
-    date: '2016-03-17',
-    path:
-      'https://medium.com/@btegelund/creating-an-eslint-plugin-87f1cb42767f',
-    title: 'Creating an ESLint Plugin',
-  },
-  {
-    external: true,
-    date: '2017-03-22',
-    path:
-      'https://medium.com/@btegelund/migrating-code-using-codemods-808e2e29e5f2',
-    title: 'Migrating Code Using Codemods',
-  },
-]
+export default function Posts() {
+  const posts = EXTERNAL_BLOG_POSTS.concat(INTERNAL_BLOG_POSTS).sort(
+    (x, y) => new Date(y.date) - new Date(x.date)
+  )
 
-const BLOG_POSTS = preval`
-  const glob = require('glob');
-  const posts = glob.sync('./pages/**/meta.js');
-  module.exports = posts.map(post => require('.' + post));
-`
-
-const POSTS = EXTERNAL_BLOG_POSTS.concat(BLOG_POSTS).sort(
-  (x, y) => new Date(y.date) - new Date(x.date)
-)
-
-/** Used to extract the domain from external blog posts */
-const extractDomain = url => {
-  const [, domain] = url.match(/:\/\/(.[^\/]+)/)
-  return domain
+  return (
+    <div className="content" style={{ maxWidth: '35em' }}>
+      <h1>Blog Posts</h1>
+      <ul>
+        {posts.map(post => (
+          <Post key={post.path} {...post} />
+        ))}
+      </ul>
+    </div>
+  )
 }
 
 function Post({ path, external, title, date }) {
@@ -56,18 +41,39 @@ function Post({ path, external, title, date }) {
         {link}
         {externalTag}
       </p>
-      <p className="subtitle is-6">{date}</p>
+      <p className="subtitle is-6">
+        <FormattedDate date={date} />
+      </p>
     </li>
   )
 }
 
-export default () => (
-  <div className="content" style={{ maxWidth: '35em' }}>
-    <h1>Blog Posts</h1>
-    <ul>
-      {POSTS.map(post => (
-        <Post key={post.path} {...post} />
-      ))}
-    </ul>
-  </div>
-)
+/** Used to extract the domain from external blog posts */
+const extractDomain = url => {
+  const [, domain] = url.match(/:\/\/(.[^\/]+)/)
+  return domain
+}
+
+const EXTERNAL_BLOG_POSTS = [
+  {
+    external: true,
+    date: '2016-03-17',
+    path:
+      'https://medium.com/@btegelund/creating-an-eslint-plugin-87f1cb42767f',
+    title: 'Creating an ESLint Plugin',
+  },
+  {
+    external: true,
+    date: '2017-03-22',
+    path:
+      'https://medium.com/@btegelund/migrating-code-using-codemods-808e2e29e5f2',
+    title: 'Migrating Code Using Codemods',
+  },
+]
+
+const INTERNAL_BLOG_POSTS = preval`
+  const glob = require('glob');
+  const posts = glob.sync('./pages/**/meta.js');
+  module.exports = posts.map(post => require('.' + post));
+`
+

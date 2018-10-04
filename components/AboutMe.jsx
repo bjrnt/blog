@@ -1,6 +1,5 @@
-import * as React from "react";
-import Icon from "./Icon";
-import Link from "next/link";
+import Icon from './Icon'
+import Link from 'next/link'
 
 function ContactMethods() {
   return (
@@ -48,46 +47,52 @@ function ContactMethods() {
         </a>
       </div>
     </div>
-  );
+  )
 }
 
 function ProfileImage() {
   return (
-    <p className="image is-128x128" style={{ marginBottom: "1.5em" }}>
+    <p className="image is-128x128" style={{ marginBottom: '1.5em' }}>
       <img
         src="/static/me.jpg"
-        style={{ borderRadius: "10em" }}
+        style={{ borderRadius: '10em' }}
         alt="author profile"
       />
     </p>
-  );
+  )
 }
 
-export default () => (
-  <div
-    style={{
-      display: "flex",
-      alignItems: "center",
-      width: "100%",
-      flexDirection: "column"
-    }}
-  >
-    <ProfileImage />
+export default function AboutMe() {
+  return (
     <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        width: '100%',
+        flexDirection: 'column',
+      }}
     >
-      <h1 className="title is-4" style={{ marginBottom: ".5em" }}>
-        <Link href="/">
-          <a>Björn Tegelund</a>
-        </Link>
-      </h1>
-      <p style={{ maxWidth: "30em" }}>
-        I'm a Swedish 🇸🇪 software engineer currently living in Seoul, South
-        Korea 🇰🇷. My current interests are core computer science, technical
-        management, and distributed systems.
-      </p>
-      <br />
-      <ContactMethods />
+      <ProfileImage />
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <h1 className="title is-4" style={{ marginBottom: '.5em' }}>
+          <Link href="/">
+            <a>Björn Tegelund</a>
+          </Link>
+        </h1>
+        <p style={{ maxWidth: '30em' }}>
+          I'm a Swedish 🇸🇪 software engineer currently living in Seoul, South
+          Korea 🇰🇷. My current interests are core computer science, technical
+          management, and distributed systems.
+        </p>
+        <br />
+        <ContactMethods />
+      </div>
     </div>
-  </div>
-);
+  )
+}

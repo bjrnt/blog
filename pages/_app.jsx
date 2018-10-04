@@ -1,11 +1,10 @@
-import * as React from 'react'
 import App, { Container } from 'next/app'
 import Head from 'next/head'
 
 import '../styles/bulma.css'
 import '../styles/icons.css'
 
-export default class extends App {
+export default class BjrntApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
 

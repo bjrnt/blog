@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import AboutMe from '../components/AboutMe'
+import AboutMe from './AboutMe'
 import { Component } from 'react'
+import FormattedDate from './FormattedDate'
 
-export default class extends Component {
+export default class BlogPostLayout extends Component {
   render() {
     return (
       <section className="section">
@@ -15,7 +16,7 @@ export default class extends Component {
               <div>
                 <h1 className="title has-text-centered">{this.props.title}</h1>
                 <h2 className="subtitle has-text-centered">
-                  Written {this.props.date}
+                  Written <FormattedDate date={this.props.date} />
                 </h2>
               </div>
               <br />
