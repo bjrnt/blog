@@ -1,23 +1,23 @@
-import * as React from "react";
-import App, { Container } from "next/app";
-import Head from "next/head";
+import * as React from 'react'
+import App, { Container } from 'next/app'
+import Head from 'next/head'
 
-import "../styles/bulma.css";
-import "../styles/icons.css";
+import '../styles/bulma.css'
+import '../styles/icons.css'
 
 export default class extends App {
   static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
+    let pageProps = {}
 
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
+      pageProps = await Component.getInitialProps(ctx)
     }
 
-    return { pageProps };
+    return { pageProps }
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps } = this.props
 
     return (
       <Container>
@@ -28,9 +28,14 @@ export default class extends App {
             content="width=device-width, initial-scale=1"
             key="viewport"
           />
+          <meta
+            name="Description"
+            content="Personal website and blog of Björn Tegelund"
+            key="description"
+          />
         </Head>
         <Component {...pageProps} />
       </Container>
-    );
+    )
   }
 }

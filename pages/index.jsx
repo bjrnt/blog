@@ -1,12 +1,12 @@
-import * as React from "react";
-import AboutMe from "../components/AboutMe";
-import Posts from '../components/Posts';
+import * as React from 'react'
+import AboutMe from '../components/AboutMe'
+import Posts from '../components/Posts'
 
 export default () => (
   <div>
     <section className="hero is-fullheight">
       <div className="hero-body">
-        <div className="container" style={{ maxWidth: "35em" }}>
+        <div className="container" style={{ maxWidth: '35em' }}>
           <h2 className="subtitle">
             Hello there, I'm
             <span className="title is-block no-margin">Björn Tegelund</span>
@@ -28,17 +28,17 @@ export default () => (
     </section>
     <section id="blog-posts" className="hero is-fullheight">
       <div className="hero-body">
-        <div className="container" style={{ maxWidth: "35em" }}>
+        <div className="container" style={{ maxWidth: '35em' }}>
           <Posts />
         </div>
       </div>
     </section>
     <section id="about-me" className="hero is-fullheight">
       <div className="hero-body">
-        <div className="container" style={{ maxWidth: "35em" }}>
+        <div className="container" style={{ maxWidth: '35em' }}>
           <AboutMe />
         </div>
       </div>
     </section>
   </div>
-);
+)

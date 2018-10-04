@@ -9,6 +9,7 @@ function ContactMethods() {
         <a
           className="button is-primary is-inverted"
           href="mailto:b.tegelund@gmail.com"
+          aria-label="email"
         >
           <Icon icon="mail" />
         </a>
@@ -19,6 +20,7 @@ function ContactMethods() {
           href="https://twitter.com/_bjrnt"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="twitter"
         >
           <Icon icon="twitter" />
         </a>
@@ -29,6 +31,7 @@ function ContactMethods() {
           href="https://www.linkedin.com/in/bjorn0"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="linkedin"
         >
           <Icon icon="linkedin" />
         </a>
@@ -39,6 +42,7 @@ function ContactMethods() {
           href="https://github.com/bjrnt"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="github"
         >
           <Icon icon="github" />
         </a>
