@@ -3,15 +3,11 @@ import Link from 'next/link'
 import FormattedDate from './FormattedDate'
 
 export default function Posts() {
-  const posts = EXTERNAL_BLOG_POSTS.concat(INTERNAL_BLOG_POSTS).sort(
-    (x, y) => new Date(y.date) - new Date(x.date)
-  )
-
   return (
     <div className="content" style={{ maxWidth: '35em' }}>
       <h1>Blog Posts</h1>
       <ul>
-        {posts.map(post => (
+        {BLOG_POSTS.map(post => (
           <Post key={post.path} {...post} />
         ))}
       </ul>
@@ -77,3 +73,6 @@ const INTERNAL_BLOG_POSTS = preval`
   module.exports = posts.map(post => require('.' + post));
 `
 
+const BLOG_POSTS = EXTERNAL_BLOG_POSTS.concat(INTERNAL_BLOG_POSTS).sort(
+  (x, y) => new Date(y.date) - new Date(x.date)
+)
