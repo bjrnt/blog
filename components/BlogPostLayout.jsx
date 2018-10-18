@@ -20,7 +20,7 @@ export default class BlogPostLayout extends Component {
                 </h2>
               </div>
               <br />
-              <div className="content is-size-5 has-text-justified">
+              <div className="content is-size-5">
                 {this.props.children}
               </div>
               <br />
