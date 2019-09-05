@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "predev": "npm run build:bulma",
     "dev": "next",
     "build:bulma": "node-sass --omit-source-map-url bulma/bulma.sass styles/bulma.css",
     "build": "npm run build:bulma && next build && next export"
@@ -23,7 +24,8 @@
     "node-sass": "^4.9.3",
     "preval.macro": "^3.0.0",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-ga": "^2.6.0"
   },
   "prettier": {
     "printWidth": 80,
